@@ -1,0 +1,41 @@
+{
+  "name": "biutopian",
+  "version": "0.0.1",
+  "description": "Analysis of Utopian contributions on the STEEM blockchain",
+  "main": "utopian_io_all_time.js",
+  "dependencies": {
+    "dateformat": "^3.0.2",
+    "googlespell": "^0.0.4",
+    "jquery": "^3.2.1",
+    "jsdom": "^11.5.1",
+    "mssql": "^4.1.0",
+    "nodehun-sentences": "^1.0.4",
+    "remove-markdown": "^0.2.2",
+    "spell-checker": "^0.0.26",
+    "spell-checker-js": "^1.2.3",
+    "wordcount": "^1.1.1",
+    "write-good": "^0.11.3",
+    "xmlhttprequest": "^1.8.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eastmaels/biutopian.git"
+  },
+  "keywords": [
+    "analytics",
+    "data",
+    "steem",
+    "analysis",
+    "utopian"
+  ],
+  "author": "East",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eastmaels/biutopian/issues"
+  },
+  "homepage": "https://github.com/eastmaels/biutopian#readme"
+}
