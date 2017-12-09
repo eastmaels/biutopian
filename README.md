@@ -1,1 +1,14 @@
 # biutopian
+
+Analysis of [Utopian](https://utopian.io/) contributions on the STEEM blockchain.
+
+## Run
+
+```
+$ git clone git@github.com:eastmaels/biutopian.git
+$ cd biutpian
+$ npm install
+$ node utopian_io_all_time.js
+```
+
+This will generate a CSV in `./analysis`. You can create your reports from this file.
