@@ -6,7 +6,7 @@ Analysis of [Utopian](https://utopian.io/) contributions on the STEEM blockchain
 
 ```
 $ git clone git@github.com:eastmaels/biutopian.git
-$ cd biutpian
+$ cd biutopian
 $ npm install
 $ node utopian_io_all_time.js
 ```
