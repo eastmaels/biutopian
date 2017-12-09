@@ -9,7 +9,7 @@
     "remove-markdown": "^0.2.2",
     "spell-checker-js": "^1.2.3",
     "wordcount": "^1.1.1",
-    "write-good": "^0.11.3",
+    "write-good": "^0.11.3"
   },
   "devDependencies": {},
   "scripts": {
