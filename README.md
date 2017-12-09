@@ -11,4 +11,4 @@ $ npm install
 $ node utopian_io_all_time.js
 ```
 
-This will generate a CSV in `./analysis`. You can create your reports from this file.
+This will generate a CSV in `./analysis` folder. You can create your reports from this file.
