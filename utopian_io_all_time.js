@@ -50,6 +50,7 @@ votes.voter
 ,json_value(body_language, '$[2].language') as lang3
 ,json_value(body_language, '$[2].isReliable') as reliable3
 */
+,comments.children
 from 
   TxVotes (NOLOCK) votes 
  inner join Comments (NOLOCK) comments
@@ -88,7 +89,7 @@ sql.connect(config, function (err) {
     const bot = "utopian-io";
     const filetstamp = dateFormat(now, "UTC:yyyymmdd_HHMMss");
     const outputCsv = `analysis/${bot}_${filetstamp}.csv`;
-    fs.writeFileSync(outputCsv, 'Voter,Weight,% Weight,App,Category,Github Project,Author,Permlink,vote_tstamp,total_payout,pending_payout_value,curator_payout_value,total_payout_value,total_rshares,ratio,Bot Vote,Vote Count,Est. Author Rewards,Est. Curation Rewards,Est. Beneficiary Rewards,Est. Net Author Rewards,Creation Date,Vote Date,Language,Word Count,Spell Errors Count,Grammar Check,Title\r\n');
+    fs.writeFileSync(outputCsv, 'Voter,Weight,% Weight,App,Category,Github Project,Author,Permlink,vote_tstamp,total_payout,pending_payout_value,curator_payout_value,total_payout_value,total_rshares,ratio,Bot Vote,Vote Count,Est. Author Rewards,Est. Curation Rewards,Est. Beneficiary Rewards,Est. Net Author Rewards,Creation Date,Vote Date,Language,Word Count,Spell Errors Count,Grammar Check,Comments,Title\r\n');
     result.recordset.forEach(function(item) {
 
       var active_votes = JSON.parse(item.active_votes);
@@ -126,13 +127,12 @@ sql.connect(config, function (err) {
 
       const body = removeMd(item.body);
       const word_count = wordcount(body);
-      const title = (language === "en" ? item.title.replace(/,/g, '') : "");
 
       // Checking text
       const spellerrors = (language === "en" ? spell.check(body) : []);
       const grammar_suggestions = (language === "en" ? writeGood(body) : []);
 
-      var dataToWrite = `${item.voter},${item.weight},${weight_in_percent},${item.app},${item.post_type},${item.repo},${item.author},${item.permlink},${vote_tstamp},${item.total_payout},${item.pending_payout_value},${item.curator_payout_value},${item.total_payout_value},${total_rshares},${ratio},${botVoteValue},${active_votes.length},${est_author_rewards},${est_curation_rewards},${est_beneficiary_rewards},${est_net_author_rewards},${created},${vote_date},${language},${word_count},${spellerrors.length},${grammar_suggestions.length},${title}\r\n`
+      var dataToWrite = `${item.voter},${item.weight},${weight_in_percent},${item.app},${item.post_type},${item.repo},${item.author},${item.permlink},${vote_tstamp},${item.total_payout},${item.pending_payout_value},${item.curator_payout_value},${item.total_payout_value},${total_rshares},${ratio},${botVoteValue},${active_votes.length},${est_author_rewards},${est_curation_rewards},${est_beneficiary_rewards},${est_net_author_rewards},${created},${vote_date},${language},${word_count},${spellerrors.length},${grammar_suggestions.length},${item.children}\r\n`
       fs.appendFileSync(outputCsv, dataToWrite);
     });
 
