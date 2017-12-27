@@ -7,6 +7,7 @@
     "dateformat": "^3.0.2",
     "mssql": "^4.1.0",
     "remove-markdown": "^0.2.2",
+    "request": "^2.83.0",
     "spell-checker-js": "^1.2.3",
     "wordcount": "^1.1.1",
     "write-good": "^0.11.3"
