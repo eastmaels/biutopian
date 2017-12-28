@@ -1,0 +1,141 @@
+![globe-110775_1280.jpg](https://res.cloudinary.com/hpiynhbhq/image/upload/v1514330282/sswmhgrxxlap6fwsjfaa.jpg)
+<sup>[Source](https://pixabay.com/en/globe-world-languages-translate-110775/)</sup>
+
+This was a spin-off from a [previous analysis](https://utopian.io/utopian-io/@eastmael/scaling-the-utopian-bot-feasibility-study-steemit-business-intelligence). Based on it, **translations** received the biggest rewards from @utopian-io with around **$23 thousand** in rewards when that analysis was done on December 15, 2017.
+
+In this analysis, this author decided to expound from that idea, and look into the details of the rewards per language and then compare that with existing translation services and see whether rewards were below par, at par, or above it.
+
+## Outline
+
+1. Scope of Analysis
+1. Posts in Steemit
+    1. Growth of Posts
+    1. Language Distribution
+    1. Growth of Languages
+1. Translation Contributions in Utopian
+    1. Role of Languages in Utopian
+    1. Growth of Languages in Utopian
+    1. Look into Utopian Translation Rewards
+    1. Translation Rewards per Language
+    1. Comparing Rewards with Existing Services
+1. Conclusion
+
+## 1. Scope of Analysis
+
+* Contributions were acquired on **Dec. 28, 2017 2151H UTC**
+* Data extracted was from `2017-09-28 1539H UTC` to `2017-12-28  0835H UTC`
+* Down-votes were excluded
+* Up-votes on comments were excluded
+
+## 2. Posts in Steemit
+
+Let's look at the posts on the STEEM blockchain.
+
+### 2.1. Growth of Posts
+
+| <center>Daily Steemit Statistics</center> | <center>Posts By Year-Month</center> |
+| -- | -- |
+| ![](https://steemitimages.com/0x0/https://arcange.eu/steem-images/2017-12-24-Posts-EN.png)<sup>[Source](https://steemit.com/statistics/@arcange/steemit-statistics-20171224-en)</sup> | ![image.png](https://res.cloudinary.com/hpiynhbhq/image/upload/v1514500932/zokdys2hxyptl2ow9h8b.png) |
+
+Based on the [daily statistics](https://steemit.com/statistics/@arcange/steemit-statistics-20171224-en) from @arcange (*left*), the daily posts (*blue line*) on the STEEM blockchain was near **$40 thousand**.
+
+On the right, it shows the number of posts per month starting from **March 2016**. Based on this, there were nearly **700 thousand posts** for December, the highest so far.
+
+On the date this data was extracted, there were more than **4 million posts** in total.
+
+*In these four million posts, how many languages were used? Let's look at its distribution.*
+
+### 2.2. Language Distribution
+
+<center>![image.png](https://res.cloudinary.com/hpiynhbhq/image/upload/v1514332227/xo3thb7kxphll3av0po9.png)</center>
+
+Based on this visualization, there were **268 languages** used. This is just **4%** of the discovered **7099 languages**<sup>[1](https://www.ethnologue.com/guides/how-many-languages)</sup>.
+
+English was still the most used accounting to nearly **3 million (84%)** of the posts.
+
+> TRIVIA: Language detection is not included in the blockchain. It's a feature exclusive to SteemSQL. Here's an excerpt from [this post](https://steemit.com/steemit/@arcange/steemsql-a-public-sql-database-with-all-blockchain-data-new-language-detection) of its author:
+    > *Language detection has been added to the Database Injector process.*
+    > *Each time a post or comment is created, the body content is analyzed to determine which language(s) it contains.*
+
+Let's look at how languages grew over time.
+
+### 2.3. Growth of Languages in Steemit
+
+| <center>Steemit Post Growth</center> | <center>Language Growth (English and Top 10)</center> |
+| -- | -- |
+| ![image.png](https://res.cloudinary.com/hpiynhbhq/image/upload/v1514259447/xuxbuxnijwuo2rm7abhz.png) | ![image.png](https://res.cloudinary.com/hpiynhbhq/image/upload/v1514378040/rsdf36vygneyrhv8p12x.png) |
+
+The left chart is from the **2.1. Growth of Posts**. It serves as our reference as to how languages grew over time (right line charts). The *top-right* shows the monthly posts of English and the *bottom-right* is the monthly posts of the top 10 languages.
+
+The message is consistent in all three charts. It was on May 2017 that there was a sudden boom in the number of posts which continued until July. From **42 thousand** on April, it tripled to **134 thousand in May**. I looked back at the history of posts by @steemitblog and it was during this time (April to June) that **HF19 (Equality)** was at work. Here's a brief timeline:
+
+* March 30, 2017: [HF17 + 18](https://steemit.com/steem/@steemitblog/consensus-reached-for-hardfork-17-18-the-new-features-are-yours-on-thursday-march-30th-at-11am-est)
+* April 11, 2017: [The 2017 Steem Growth Plan](https://steemit.com/marketing/@steemitblog/the-2017-steem-growth-plan)
+* April 18, 2017: [HF19 Proposal](https://steemit.com/steemit/@steemitblog/proposing-steem-equality-0-19-0-as-the-next-fork)
+* April 29, 2017: [Consensus on HF19](https://steemit.com/steemit/@steemitblog/proposing-steem-equality-0-19-0-as-the-next-fork)
+* May 3, 2017: [Sign-up  Process Evolution](https://steemit.com/steemit/@steemitblog/team-update-signup-process-evolution)
+* May 24, 2017: [Pre-release HF19](https://steemit.com/steem/@steemitblog/2hfxx1-pre-release-hf19-linear-rewards)
+* June 20, 2017: [Pre-Anouncement of HF19 release](https://steemit.com/steemit/@steemitblog/hf19-equality-coming-soon-linear-rewards)
+* June 23, 2017: [Announcement of HF19 Release](https://steemit.com/steemit/@steemitblog/proposing-hardfork-0-20-0-velocity)
+
+It was on [June 20](https://steemit.com/steemit/@steemitblog/hf19-equality-coming-soon-linear-rewards) that HF19 changes were reflected on the blockchain. 
+
+This basically confirmed what led to the growth of posts on July 2017. There were changes happening **3 months** before the peak in July.
+
+Going back to analysis...
+
+## 3. Translation Contributions in Utopian
+
+Let's look into the meat of this analysis - **translations**.
+
+### 3.1. Role of Languages in Utopian
+
+Different languages play an important role in any global economy.  Utopian recognizes this as what's written in its signature (emphasis is the author's):
+
+> We are made of developers, system administrators, entrepreneurs, artists, content creators, thinkers. **We embrace every nationality**, mindset and belief.
+
+**There is unity in diversity.** Languages play an important role in Utopian, particularly in translations. Let's see how translations grew in Utopian.
+
+### 3.2. Growth of Translations in Utopian
+
+As mentioned in the introduction, **translations** received more than **$23 thousand rewards** last December 15. Let's see its latest rewards as of December 27.
+
+![image.png](https://res.cloudinary.com/hpiynhbhq/image/upload/v1514498464/wvqzzandp9ef5o01niht.png)
+
+
+In just two weeks, it has nearly tripled its rewards to **$64 thousand**! 
+
+Is this all? Is this the real value of language in Utopian? Or is it beyond the rewards? Let's investigate further.
+
+### 3.3. A Look Into Translation Rewards
+
+![image.png](https://res.cloudinary.com/hpiynhbhq/image/upload/v1514471576/lrhynqp7w2lkjpd4icmx.png)
+
+There were **47 languages** used to translate open source documents. This is roughly **18%** of the **268 languages** used in Steemit.
+
+Based on the table on the left, **Turkish** leads all translations by receiving nearly **$17 thousand** rewards for its **594 contributions**.
+
+Let's look at the average translation reward per language.
+
+### 3.4. Average Translation Rewards per Language
+
+![image.png](https://res.cloudinary.com/hpiynhbhq/image/upload/v1514472004/y7pekcuegtelqrewqo9g.png)
+
+
+
+7. Comparing Rewards with Existing Services
+8. Conclusion
+
+#### Tools Used
+
+* [SteemSQL](http://www.steemsql.com/) by @arcange
+* Node.js and npm to extract the data
+* Power BI and Excel to generate the charts
+
+#### Source Code
+
+Codes used to extract data for this analysis are available in Github:
+https://github.com/eastmaels/biutopian
+
+***
+<sup>I am part of a Blockchain Business Intelligence community. We all post under the tag #BlockchainBI. If you have an analysis you would like carried out on Steemit or Blockchain data, please do contact me or any of the #BlockchainBI team and we will do our best to help you...</sup>
