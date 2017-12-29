@@ -4,6 +4,9 @@ const removeMd = require('remove-markdown');
 const wordcount = require('wordcount');
 var request = require('request');
 
+const now = new Date();
+console.log(now);
+
 request(
   {
 //  For Review API:
@@ -17,11 +20,13 @@ request(
   (error, response, data) => {
     if (!error && response.statusCode == 200) {
 
+        console.log("post count: " + data.results.length);
+
         const now = new Date();
         const filetstamp = dateFormat(now, "UTC:yyyymmdd_HHMMss");
 
         const outputCsv = `analysis/predictive/${filetstamp}.csv`;
-        fs.writeFileSync(outputCsv, 'Author,Permlink,App,Category,Github Project,Pending Payout,Vote Count,Word Count,Voted By Bot,Title\r\n');
+        fs.writeFileSync(outputCsv, 'Author,Permlink,App,Category,Github Project,Pending Payout,Vote Count,Word Count,Voted By Bot,Created\r\n');
         data.results.forEach(function(item) {
             const json_metadata = item.json_metadata;
             var active_votes = item.active_votes;
@@ -40,6 +45,9 @@ request(
             //var dataToWrite = `${item.author},${item.permlink}\r\n`
             fs.appendFileSync(outputCsv, dataToWrite);
         });
+
+        console.log("Output done");
+
     } else {
       console.log(error);
       console.log(response);
