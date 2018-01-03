@@ -14,8 +14,8 @@ request(
 //  Approved API:
     url : 'https://api.utopian.io/api/posts/?limit=0&skip=0&section=all&sortBy=created&type=all',
     json : true,
-    headers: {'User-Agent': 'request'},
-    proxy : 'http://192.168.220.225:3128'
+    headers: {'User-Agent': 'request'}
+//    proxy : 'http://192.168.220.225:3128'
   }, 
   (error, response, data) => {
     if (!error && response.statusCode == 200) {
