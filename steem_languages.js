@@ -1,8 +1,6 @@
 const sql = require('mssql');
 const fs = require('fs');
 const dateFormat = require('dateformat');
-const removeMd = require('remove-markdown');
-const wordcount = require('wordcount');
 
 const config = {
     server:'sql.steemsql.com',
