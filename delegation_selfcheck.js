@@ -33,8 +33,8 @@ select
 	,votes.permlink as votes_permlink
 	,votes.[timestamp] as votes_tstamp
 	,(comments.pending_payout_value + comments.total_payout_value + comments.curator_payout_value) as total_payout
-	,comments.json_metadata
-	,comments.* 
+	,comments.json_metadata as record_json_metadata
+	,comments.*
 	,CONVERT(int,(SELECT MAX(v) FROM (VALUES(log10(ABS(CONVERT(bigint,comments.author_reputation)-1)) - 9),(0)) T(v)) * SIGN(comments.author_reputation) * 9 + 25) as rep
 from
    txvotes (NOLOCK) votes
@@ -99,7 +99,7 @@ sql.connect(config, function (err) {
       const vote_date = dateFormat(item.votes_tstamp, "UTC:yyyy-mm-dd");
       const created = dateFormat(item.created, "UTC:yyyy-mm-dd HH:MM:ss");
 
-      var dataToWrite = `${item.votes_voter}||${item.votes_weight}||${weight_in_percent}||${item.votes_author}||${item.rep}||${item.votes_permlink}||${vote_tstamp}||${item.total_payout}||${item.pending_payout_value}||${item.curator_payout_value}||${item.total_payout_value}||${total_rshares}||${ratio}||${delegateeVoteValue}||${active_votes.length}||${created}||${vote_date}||${item.children}||${item.json_metadata}\r\n`
+      var dataToWrite = `${item.votes_voter}||${item.votes_weight}||${weight_in_percent}||${item.votes_author}||${item.rep}||${item.votes_permlink}||${vote_tstamp}||${item.total_payout}||${item.pending_payout_value}||${item.curator_payout_value}||${item.total_payout_value}||${total_rshares}||${ratio}||${delegateeVoteValue}||${active_votes.length}||${created}||${vote_date}||${item.children}||${item.record_json_metadata}\r\n`
       fs.appendFileSync(outputCsv, dataToWrite);
     });
 
