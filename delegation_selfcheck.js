@@ -31,9 +31,11 @@ select
 	,votes.weight as votes_weight
 	,votes.author as votes_author
 	,votes.permlink as votes_permlink
-	,votes.permlink as votes_tstamp
+	,votes.[timestamp] as votes_tstamp
 	,(comments.pending_payout_value + comments.total_payout_value + comments.curator_payout_value) as total_payout
-   ,comments.* 
+	,json_value(comments.json_metadata, '$.tags') as tags
+	,comments.* 
+	,CONVERT(int,(SELECT MAX(v) FROM (VALUES(log10(ABS(CONVERT(bigint,comments.author_reputation)-1)) - 9),(0)) T(v)) * SIGN(comments.author_reputation) * 9 + 25) as rep
 from
    txvotes (NOLOCK) votes
     inner join Comments (NOLOCK) comments
@@ -75,7 +77,7 @@ sql.connect(config, function (err) {
 
     const filetstamp = dateFormat(now, "UTC:yyyymmdd_HHMMss");
     const outputCsv = `analysis/delegation_self-check_${delegatee}_${filetstamp}.csv`;
-    fs.writeFileSync(outputCsv, 'Voter,Weight,% Weight,Author,Permlink,vote_tstamp,Total Payout,Pending Payout,Curator Payout,Total Payout Value,Total Reward Shares,Ratio,Delegatee Vote Value,Vote Count,Created,Vote Date,Comments\r\n');
+    fs.writeFileSync(outputCsv, 'Voter,Weight,% Weight,Author,Rep,Permlink,vote_tstamp,Total Payout,Pending Payout,Curator Payout,Total Payout Value,Total Reward Shares,Ratio,Delegatee Vote Value,Vote Count,Created,Vote Date,Comments,Tags\r\n');
     result.recordset.forEach(function(item) {
 
       var active_votes = JSON.parse(item.active_votes);
@@ -97,7 +99,7 @@ sql.connect(config, function (err) {
       const vote_date = dateFormat(item.votes_tstamp, "UTC:yyyy-mm-dd");
       const created = dateFormat(item.created, "UTC:yyyy-mm-dd HH:MM:ss");
 
-      var dataToWrite = `${item.votes_voter},${item.votes_weight},${weight_in_percent},${item.votes_author},${item.votes_permlink},${vote_tstamp},${item.total_payout},${item.pending_payout_value},${item.curator_payout_value},${item.total_payout_value},${total_rshares},${ratio},${delegateeVoteValue},${active_votes.length},${created},${vote_date},${item.children}\r\n`
+      var dataToWrite = `${item.votes_voter},${item.votes_weight},${weight_in_percent},${item.votes_author},${item.rep},${item.votes_permlink},${vote_tstamp},${item.total_payout},${item.pending_payout_value},${item.curator_payout_value},${item.total_payout_value},${total_rshares},${ratio},${delegateeVoteValue},${active_votes.length},${created},${vote_date},${item.children},${item.tags}\r\n`
       fs.appendFileSync(outputCsv, dataToWrite);
     });
 
