@@ -77,7 +77,7 @@ sql.connect(config, function (err) {
 
     const filetstamp = dateFormat(now, "UTC:yyyymmdd_HHMMss");
     const outputCsv = `analysis/delegation_self-check_${delegatee}_${filetstamp}.csv`;
-    fs.writeFileSync(outputCsv, 'Voter||Weight||% Weight||Author||Rep,Permlink||vote_tstamp||Total Payout||Pending Payout||Curator Payout||Total Payout Value||Total Reward Shares||Ratio||Delegatee Vote Value||Vote Count||Created||Vote Date||Comments||json_metadata\r\n');
+    fs.writeFileSync(outputCsv, 'Voter||Weight||% Weight||Author||Rep||Permlink||vote_tstamp||Total Payout||Pending Payout||Curator Payout||Total Payout Value||Total Reward Shares||Ratio||Delegatee Vote Value||Vote Count||Created||Vote Date||Comments||json_metadata\r\n');
     result.recordset.forEach(function(item) {
 
       var active_votes = JSON.parse(item.active_votes);
