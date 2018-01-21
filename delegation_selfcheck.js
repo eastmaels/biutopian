@@ -31,7 +31,8 @@ select
 	,votes.weight as votes_weight
 	,votes.author as votes_author
 	,votes.permlink as votes_permlink
- 	,votes.permlink as votes_tstamp
+	,votes.permlink as votes_tstamp
+	,(comments.pending_payout_value + comments.total_payout_value + comments.curator_payout_value) as total_payout
    ,comments.* 
 from
    txvotes (NOLOCK) votes
