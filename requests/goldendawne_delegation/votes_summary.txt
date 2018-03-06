@@ -1,0 +1,70 @@
+Select 
+  a.name as Delegatee, 
+  MAX(a.witnesses_voted_for) as Wit_v,
+  COUNT(v.voter) as Votes,
+  SUM(CASE WHEN v.voter=v.author THEN 1 ELSE 0 END) As Self_v,
+  SUM(CASE WHEN v.weight<0 THEN 1 ELSE 0 END) As Down_v
+From
+  Accounts a
+    inner join TxVotes v
+	  on v.voter = a.name
+where
+  a.name='karenfoster'
+  and v.timestamp >= '2018-01-21'
+group by
+  a.name
+
+union all
+
+Select 
+  a.name as Delegatee, 
+  MAX(a.witnesses_voted_for) as Wit_v,
+  COUNT(v.voter) as Votes,
+  SUM(CASE WHEN v.voter=v.author THEN 1 ELSE 0 END) As Self_v,
+  SUM(CASE WHEN v.weight<0 THEN 1 ELSE 0 END) As Down_v
+From
+  Accounts a
+    inner join TxVotes v
+	  on v.voter = a.name
+where
+  a.name='freedompoint'
+  and v.timestamp >= '2018-01-21'
+group by
+  a.name
+
+union all
+
+Select 
+  a.name as Delegatee, 
+  MAX(a.witnesses_voted_for) as Wit_v,
+  COUNT(v.voter) as Votes,
+  SUM(CASE WHEN v.voter=v.author THEN 1 ELSE 0 END) As Self_v,
+  SUM(CASE WHEN v.weight<0 THEN 1 ELSE 0 END) As Down_v
+From
+  Accounts a
+    inner join TxVotes v
+	  on v.voter = a.name
+where
+  a.name='beatitudes8'
+  and v.timestamp >= '2018-01-26'
+group by
+  a.name
+
+
+union all
+
+Select 
+  a.name as Delegatee, 
+  MAX(a.witnesses_voted_for) as Wit_v,
+  COUNT(v.voter) as Votes,
+  SUM(CASE WHEN v.voter=v.author THEN 1 ELSE 0 END) As Self_v,
+  SUM(CASE WHEN v.weight<0 THEN 1 ELSE 0 END) As Down_v
+From
+  Accounts a
+    inner join TxVotes v
+	  on v.voter = a.name
+where
+  a.name='walkerland'
+  and v.timestamp >= '2018-02-23'
+group by
+  a.name

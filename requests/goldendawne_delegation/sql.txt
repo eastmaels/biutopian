@@ -1,0 +1,19 @@
+select * from 
+txvotes where
+voter='karenfoster'
+and [timestamp] >= '2018-01-21'
+union all
+select * from 
+txvotes where
+voter='freedompoint'
+and [timestamp] >= '2018-01-21'
+union all
+select * from 
+txvotes where
+voter='beatitudes8'
+and [timestamp] >= '2018-01-26'
+union all
+select * from 
+txvotes where
+voter='walkerland'
+and [timestamp] >= '2018-02-23'

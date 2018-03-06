@@ -1,0 +1,53 @@
+Select 
+  author as Delegatee, 
+  depth,
+  created,
+  len(body) as Body_Len,
+  json_metadata
+From
+  Comments
+where
+  author='karenfoster'
+  and created>='2018-01-21'
+
+union all
+
+Select 
+  author as Delegatee, 
+  depth,
+  created,
+  len(body) as Body_Len,
+  json_metadata
+From
+  Comments
+where
+  author='freedompoint'
+  and created>='2018-01-21'
+
+union all
+
+Select 
+  author as Delegatee, 
+  depth,
+  created,
+  len(body) as Body_Len,
+  json_metadata
+From
+  Comments
+where
+  author='beatitudes8'
+  and created>='2018-01-26'
+
+union all
+
+Select 
+  author as Delegatee, 
+  depth,
+  created,
+  len(body) as Body_Len,
+  json_metadata
+From
+  Comments
+where
+  author='walkerland'
+  and created>='2018-02-23'

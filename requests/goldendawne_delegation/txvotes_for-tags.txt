@@ -1,0 +1,69 @@
+Select 
+  v.voter as Delegatee, v.weight As Weight, v.author As Author, v.[timestamp] As votes_tstamp, v.permlink As votes_permlink
+	,CONVERT(int,(SELECT MAX(v) FROM (VALUES(log10(ABS(CONVERT(bigint,c.author_reputation)-1)) - 9),(0)) T(v)) * SIGN
+	,c.depth
+  ,c.created
+  ,len(c.body) as Body_Len
+  ,c.json_metadata
+From
+  TxVotes v
+  inner join Comments c
+	 on c.author = v.author
+	 and c.permlink = v.permlink
+where
+  v.voter='karenfoster'
+  and v.timestamp >= '2018-01-21'
+
+union all
+
+Select 
+  v.voter as Delegatee, v.weight As Weight, v.author As Author, v.[timestamp] As votes_tstamp, v.permlink As votes_permlink
+	,CONVERT(int,(SELECT MAX(v) FROM (VALUES(log10(ABS(CONVERT(bigint,c.author_reputation)-1)) - 9),(0)) T(v)) * SIGN
+	,c.depth
+  ,c.created
+  ,len(c.body) as Body_Len
+  ,c.json_metadata
+From
+  TxVotes v
+  inner join Comments c
+	 on c.author = v.author
+	 and c.permlink = v.permlink
+where
+  v.voter='freedompoint'
+  and v.timestamp >= '2018-01-21'
+
+union all
+
+Select 
+  v.voter as Delegatee, v.weight As Weight, v.author As Author, v.[timestamp] As votes_tstamp, v.permlink As votes_permlink
+	,CONVERT(int,(SELECT MAX(v) FROM (VALUES(log10(ABS(CONVERT(bigint,c.author_reputation)-1)) - 9),(0)) T(v)) * SIGN
+	,c.depth
+  ,c.created
+  ,len(c.body) as Body_Len
+  ,c.json_metadata
+From
+  TxVotes v
+  inner join Comments c
+	 on c.author = v.author
+	 and c.permlink = v.permlink
+where
+  v.voter='beatitudes8'
+  and v.timestamp >= '2018-01-26'
+
+union all
+
+Select 
+  v.voter as Delegatee, v.weight As Weight, v.author As Author, v.[timestamp] As votes_tstamp, v.permlink As votes_permlink
+	,CONVERT(int,(SELECT MAX(v) FROM (VALUES(log10(ABS(CONVERT(bigint,c.author_reputation)-1)) - 9),(0)) T(v)) * SIGN
+	,c.depth
+  ,c.created
+  ,len(c.body) as Body_Len
+  ,c.json_metadata
+From
+  TxVotes v
+  inner join Comments c
+	 on c.author = v.author
+	 and c.permlink = v.permlink
+where
+  v.voter='walkerland'
+  and v.timestamp >= '2018-02-23'

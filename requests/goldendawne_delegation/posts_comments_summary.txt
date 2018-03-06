@@ -1,0 +1,57 @@
+Select 
+  author as Delegatee, 
+  SUM(CASE WHEN depth=0 THEN 1 ELSE 0 END) as Posts, 
+  SUM(CASE WHEN depth=0 THEN 0 ELSE 1 END) as Comments,
+  SUM(CASE WHEN depth<>0 THEN len(body) ELSE 0 END) as Com_len
+From
+  Comments
+where
+  author='karenfoster'
+  and created>='2018-01-21'
+group by
+  author
+
+union all
+
+Select 
+  author as Delegatee, 
+  SUM(CASE WHEN depth=0 THEN 1 ELSE 0 END) as Posts, 
+  SUM(CASE WHEN depth=0 THEN 0 ELSE 1 END) as Comments,
+  SUM(CASE WHEN depth<>0 THEN len(body) ELSE 0 END) as Com_len
+From
+  Comments
+where
+  author='freedompoint'
+  and created>='2018-01-21'
+group by
+  author
+
+union all
+
+Select 
+  author as Delegatee, 
+  SUM(CASE WHEN depth=0 THEN 1 ELSE 0 END) as Posts, 
+  SUM(CASE WHEN depth=0 THEN 0 ELSE 1 END) as Comments,
+  SUM(CASE WHEN depth<>0 THEN len(body) ELSE 0 END) as Com_len
+From
+  Comments
+where
+  author='beatitudes8'
+  and created>='2018-01-26'
+group by
+  author
+
+union all
+
+Select 
+  author as Delegatee, 
+  SUM(CASE WHEN depth=0 THEN 1 ELSE 0 END) as Posts, 
+  SUM(CASE WHEN depth=0 THEN 0 ELSE 1 END) as Comments,
+  SUM(CASE WHEN depth<>0 THEN len(body) ELSE 0 END) as Com_len
+From
+  Comments
+where
+  author='walkerland'
+  and created>='2018-02-23'
+group by
+  author

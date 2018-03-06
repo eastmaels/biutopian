@@ -1,0 +1,73 @@
+select
+	votes.voter as votes_voter
+	,votes.weight as votes_weight
+	,votes.author as votes_author
+	,votes.permlink as votes_permlink
+	,votes.[timestamp] as votes_tstamp
+	,(comments.pending_payout_value + comments.total_payout_value + comments.curator_payout_value) as total_payout
+	,CONVERT(int,(SELECT MAX(v) FROM (VALUES(log10(ABS(CONVERT(bigint,comments.author_reputation)-1)) - 9),(0)) T(v)) * SIGN(comments.author_reputation) * 9 + 25) as rep
+from
+   txvotes (NOLOCK) votes
+    inner join Comments (NOLOCK) comments
+	 on votes.permlink = comments.permlink
+	 and votes.author = comments.author
+where
+   voter='karenfoster'
+   and votes.[timestamp] >= '2018-01-21'
+
+union all
+
+select
+	votes.voter as votes_voter
+	,votes.weight as votes_weight
+	,votes.author as votes_author
+	,votes.permlink as votes_permlink
+	,votes.[timestamp] as votes_tstamp
+	,(comments.pending_payout_value + comments.total_payout_value + comments.curator_payout_value) as total_payout
+	,CONVERT(int,(SELECT MAX(v) FROM (VALUES(log10(ABS(CONVERT(bigint,comments.author_reputation)-1)) - 9),(0)) T(v)) * SIGN(comments.author_reputation) * 9 + 25) as rep
+from
+   txvotes (NOLOCK) votes
+    inner join Comments (NOLOCK) comments
+	 on votes.permlink = comments.permlink
+	 and votes.author = comments.author
+where
+   voter='freedompoint'
+   and votes.[timestamp] >= '2018-01-21'
+
+union all
+
+select
+	votes.voter as votes_voter
+	,votes.weight as votes_weight
+	,votes.author as votes_author
+	,votes.permlink as votes_permlink
+	,votes.[timestamp] as votes_tstamp
+	,(comments.pending_payout_value + comments.total_payout_value + comments.curator_payout_value) as total_payout
+	,CONVERT(int,(SELECT MAX(v) FROM (VALUES(log10(ABS(CONVERT(bigint,comments.author_reputation)-1)) - 9),(0)) T(v)) * SIGN(comments.author_reputation) * 9 + 25) as rep
+from
+   txvotes (NOLOCK) votes
+    inner join Comments (NOLOCK) comments
+	 on votes.permlink = comments.permlink
+	 and votes.author = comments.author
+where
+   voter='beatitudes8'
+   and votes.[timestamp] >= '2018-01-26'
+
+union all
+
+select
+	votes.voter as votes_voter
+	,votes.weight as votes_weight
+	,votes.author as votes_author
+	,votes.permlink as votes_permlink
+	,votes.[timestamp] as votes_tstamp
+	,(comments.pending_payout_value + comments.total_payout_value + comments.curator_payout_value) as total_payout
+	,CONVERT(int,(SELECT MAX(v) FROM (VALUES(log10(ABS(CONVERT(bigint,comments.author_reputation)-1)) - 9),(0)) T(v)) * SIGN(comments.author_reputation) * 9 + 25) as rep
+from
+   txvotes (NOLOCK) votes
+    inner join Comments (NOLOCK) comments
+	 on votes.permlink = comments.permlink
+	 and votes.author = comments.author
+where
+   voter='walkerland'
+   and votes.[timestamp] >= '2018-02-23'
