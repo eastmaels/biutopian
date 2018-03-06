@@ -1,14 +1,14 @@
 Select 
-  author as Delegatee, 
+  a.name as Delegatee, 
   SUM(CASE WHEN c.depth=0 THEN 1 ELSE 0 END) as Posts, 
   SUM(CASE WHEN c.depth=0 THEN 0 ELSE 1 END) as Comments,
   SUM(CASE WHEN c.depth<>0 THEN len(body) ELSE 0 END) as Com_len,
-  a.witnesses_voted_for as Wit_v,
+  MAX(a.witnesses_voted_for) as Wit_v,
   COUNT(v.voter) as Votes,
-  COUNT DISTINCT(v.author) as Unique_authors,
+  COUNT(DISTINCT v.author) as Unique_authors,
   SUM(CASE WHEN v.voter=v.author THEN 1 ELSE 0 END) As Self_v,
-  SUM(CASE WHEN v.weight<0v.author THEN 1 ELSE 0 END) As Down_v,
-  SUM(CASE WHEN v.voter=v.author THEN 1 ELSE 0 END)/ COUNT(v.voter) As 'SV%'
+  SUM(CASE WHEN v.weight<0 THEN 1 ELSE 0 END) As Down_v,
+  SUM(CASE WHEN v.voter=v.author THEN 1 ELSE 0 END) * 100 / COUNT(v.voter) As 'SV%'
 From
   Accounts a
     inner join TxVotes v
@@ -18,6 +18,6 @@ From
 	 and c.permlink = v.permlink
 where
   a.name='karenfoster'
-  and v.created>='2018-01-21'
+  and v.[timestamp]>='2018-01-21'
 group by
-  author
+  a.name
